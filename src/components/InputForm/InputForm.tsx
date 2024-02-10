@@ -13,7 +13,7 @@ export const InputForm = () => {
   }
 
   return (
-    <form className="relative mx-auto mb-80 w-96" onSubmit={handleSubmit}>
+    <form className="relative mx-auto mb-10 w-96" onSubmit={handleSubmit}>
       <button
         className="absolute right-0 top-0 h-14 w-12 text-base font-bold text-gray-700"
         type="submit"

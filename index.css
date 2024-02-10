@@ -1,0 +1,8 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(to top, #abbaab, #fff);
+  min-height: 100vh;
+}

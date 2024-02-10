@@ -1,6 +1,7 @@
 import Container from './Container/Container'
 import Header from './Header/Header'
 import { InputForm } from './InputForm/InputForm'
+import ToDoList from './ToDoList/ToDoList'
 
 function App() {
   return (
@@ -8,7 +9,7 @@ function App() {
       <Header />
       <Container>
         <InputForm />
-        {/* <ToDoList /> */}
+        <ToDoList />
       </Container>
     </>
   )
