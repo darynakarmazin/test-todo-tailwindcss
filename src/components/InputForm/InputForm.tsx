@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import { BsSave } from 'react-icons/bs'
+import { nanoid } from 'nanoid'
+import { InputFormProps } from 'types/propTypes'
 
-export const InputForm = () => {
+export const InputForm = ({ addTodo }: InputFormProps) => {
   const [query, setQuery] = useState('')
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -10,6 +12,9 @@ export const InputForm = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    const newId = nanoid()
+    addTodo({ title: query, id: newId, completed: false })
+    setQuery('')
   }
 
   return (

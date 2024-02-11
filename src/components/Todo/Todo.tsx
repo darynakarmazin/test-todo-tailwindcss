@@ -1,19 +1,21 @@
 import { RiDeleteBinLine } from 'react-icons/ri'
 import { BiCircle, BiChevronDownCircle } from 'react-icons/bi'
+import { TodoComponentProps } from 'types/propTypes'
 
-interface TodoProps {
-  id: number
-  title: string
-  completed: boolean
-}
-
-export const Todo = ({ title, id, completed }: TodoProps) => {
+export const Todo = ({
+  title,
+  id,
+  completed,
+  deleteTodo,
+  completeTodo
+}: TodoComponentProps) => {
   const handleDelete = () => {
-    console.log(`delete ${id}`)
+    deleteTodo(id)
   }
 
   const handleCompleted = () => {
     console.log(`completed ${id}`)
+    completeTodo(id)
   }
 
   return (
