@@ -18,7 +18,7 @@ export const Todo = ({
   }
 
   return (
-    <div className="relative size-full rounded-lg bg-gray-200 p-10 text-gray-600 shadow-md hover:scale-105 focus:scale-105">
+    <div className="relative size-full rounded-lg bg-gray-200 p-10 text-gray-600 shadow-md transition-transform duration-200 hover:scale-105 focus:scale-105">
       <p className="mb-5 text-center text-lg font-bold">TODO #</p>
       <p className="mb-5 text-center text-lg ">{title}</p>
 
@@ -43,6 +43,7 @@ export const Todo = ({
       <button
         className="absolute right-0 top-0 p-2 transition-transform duration-200 ease-in-out hover:scale-105 focus:scale-105"
         type="button"
+        aria-label={`Delete ${title}`}
         onClick={() => handleDelete()}
       >
         <RiDeleteBinLine size={24} />

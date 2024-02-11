@@ -22,6 +22,7 @@ export const InputForm = ({ addTodo }: InputFormProps) => {
       <button
         className="absolute right-0 top-0 h-14 w-12 text-base font-bold text-gray-700"
         type="submit"
+        aria-label="Save"
       >
         <BsSave size="20px" />
       </button>

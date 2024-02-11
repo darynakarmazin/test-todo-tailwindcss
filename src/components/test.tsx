@@ -1,32 +1,36 @@
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 
 import App from './App'
 
-describe('<App />', () => {
-  it('should render the App', () => {
-    const { container } = render(<App />)
+test('add ToDo', () => {
+  render(<App />)
 
-    expect(
-      screen.getByRole('heading', {
-        name: /Welcome!/i,
-        level: 1
-      })
-    ).toBeInTheDocument()
+  const input = screen.getByPlaceholderText('What do you want to write?')
+  fireEvent.change(input, { target: { value: 'New todo' } })
 
-    expect(
-      screen.getByText(
-        /This is a boilerplate build with Vite, React 18, TypeScript, Vitest, Testing Library, TailwindCSS 3, Eslint and Prettier./i
-      )
-    ).toBeInTheDocument()
+  const addButton = screen.getByRole('button', { name: 'Save' })
+  fireEvent.click(addButton)
 
-    expect(
-      screen.getByRole('link', {
-        name: /start building for free/i
-      })
-    ).toBeInTheDocument()
+  const newTodo = screen.getByText('New todo')
+  expect(newTodo).toBeInTheDocument()
+})
 
-    expect(screen.getByRole('img')).toBeInTheDocument()
+test('delete ToDo', () => {
+  render(<App />)
 
-    expect(container.firstChild).toBeInTheDocument()
+  const value = 'Todo for deleting'
+
+  const input = screen.getByPlaceholderText('What do you want to write?')
+  fireEvent.change(input, { target: { value: value } })
+
+  const addButton = screen.getByRole('button', { name: 'Save' })
+  fireEvent.click(addButton)
+
+  const deleteButton = screen.getByRole('button', {
+    name: `Delete ${value}`
   })
+  fireEvent.click(deleteButton)
+
+  const todo = screen.queryByText(value)
+  expect(todo).not.toBeInTheDocument()
 })
