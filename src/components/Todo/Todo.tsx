@@ -14,7 +14,6 @@ export const Todo = ({
   }
 
   const handleCompleted = () => {
-    console.log(`completed ${id}`)
     completeTodo(id)
   }
 
